@@ -9,6 +9,8 @@ import kr.jeongmo.a02_number_change.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    var inputNumber: Int =0
+    var cmToM = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,4 +54,44 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBoolean("cmToM", cmToM)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        cmToM = savedInstanceState.getBoolean("cmToM")
+        Log.d("cmToM", cmToM.toString())
+        binding.inputUnitTextView.text = if(cmToM) "cm" else "m"
+        binding.outputUnitTextView.text = if(cmToM) "m" else "cm"
+        super.onRestoreInstanceState(savedInstanceState)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
