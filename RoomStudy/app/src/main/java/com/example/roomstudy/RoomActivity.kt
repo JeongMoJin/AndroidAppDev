@@ -49,6 +49,7 @@ interface UserProfileDao {
     // CRUD -> 데이터 베이스 조작
     // Query -> 데이터 베이스 조회
     // ROOM 많이 이해 완료
+    // 2024 05 26
     @Insert(onConflict = REPLACE)
     fun insert(userProfile: UserProfile)
 
